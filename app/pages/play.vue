@@ -54,24 +54,24 @@ export default {
       this.cards[selectedCard.column][selectedCard.row].status = !this.cards[selectedCard.column][selectedCard.row].status
 
       // 選択されたカードの上にカードがあればStatusを反転
-      if(this.cards[selectedCard.column][selectedCard.row-1]){
+      if( _.get(this.cards, (selectedCard.column) + '.' + (selectedCard.row-1)) ){
         this.cards[selectedCard.column][selectedCard.row-1].status = !this.cards[selectedCard.column][selectedCard.row-1].status
       }
 
       // 選択されたカードの下にカードがあればStatusを反転
-　    if(this.cards[selectedCard.column][selectedCard.row+1]){
+      if( _.get(this.cards, (selectedCard.column) + '.' + (selectedCard.row+1)) ){
         this.cards[selectedCard.column][selectedCard.row+1].status = !this.cards[selectedCard.column][selectedCard.row+1].status
       }
 
-      // // 選択されたカードの左にカードがあればStatusを反転
-      // if(this.cards[selectedCard.column-1][selectedCard.row]){
-      //   this.cards[selectedCard.column-1][selectedCard.row].status = !this.cards[selectedCard.column-1][selectedCard.row].status
-      // }
+      // 選択されたカードの左にカードがあればStatusを反転
+      if( _.get(this.cards, (selectedCard.column-1) + '.' + (selectedCard.row)) ){
+        this.cards[selectedCard.column-1][selectedCard.row].status = !this.cards[selectedCard.column-1][selectedCard.row].status
+      }
 
-      // // 選択されたカードの右にカードがあればStatusを反転
-      // if(this.cards[selectedCard.column+1][selectedCard.row]){
-      //   this.cards[selectedCard.column+1][selectedCard.row].status = !this.cards[selectedCard.column+1][selectedCard.row].status
-      // }
+      // 選択されたカードの右にカードがあればStatusを反転
+      if( _.get(this.cards, (selectedCard.column+1) + '.' + (selectedCard.row)) ){
+        this.cards[selectedCard.column+1][selectedCard.row].status = !this.cards[selectedCard.column+1][selectedCard.row].status
+      }
     }
   }
 }

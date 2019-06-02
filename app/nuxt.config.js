@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 module.exports = {
   /*
   ** Headers of the page
@@ -34,6 +36,16 @@ module.exports = {
         })
       }
     }
+  },
+}
+
+export default {
+  build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        '_': 'lodash'
+      })
+    ],
   }
 }
 
